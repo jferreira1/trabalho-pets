@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Nome: {{ estab.nome }}</h1>
+    <p>Tipo: {{ estab.tipo }}</p>
+    <p>Valor: R$ {{ estab.valor }}</p>
+    <br>
+    <form action="{% url 'estabelecimento-page' estab_id=estab.id %}" method="POST">
+        {% csrf_token %}
+        {{ estab_form.as_p }}
+        <button>Agendar!</button>
+    </form>
+{% endblock content %}

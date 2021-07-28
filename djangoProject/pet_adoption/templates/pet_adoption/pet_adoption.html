@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Adoption Page</h1>
+    {% for pet in pets %}
+        <h1>Nome: {{ pet.nome }}</h1>
+        <p>Espécie: {{ pet.especie }}</p>
+        <p>Idade: {{ pet.idade }}</p>
+        <a href="{% url 'pet-page' pet_id=pet.id %}">Me adote!</a>
+    {% endfor %}
+{% endblock content %}

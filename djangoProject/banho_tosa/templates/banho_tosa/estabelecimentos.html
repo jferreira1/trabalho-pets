@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Estabelecimentos Page</h1>
+    {% for estab in estabs %}
+        <h1>Nome: {{ estab.nome }}</h1>
+        <p>Tipo: {{ estab.tipo }}</p>
+        <p>Valor: R$ {{ estab.valor }}</p>
+        <a href="{% url 'estabelecimento-page' estab_id=estab.id %}">Agendar</a>
+    {% endfor %}
+{% endblock content %}

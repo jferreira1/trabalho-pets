@@ -1,0 +1,25 @@
+<!-- Para adaptar os formulários ao Bootstrap, usar o Crispy Forms (Video 6: 38:40) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+        <title>Trabalho Pets - {{ title }}</title>
+    {% else %}
+        <title>Trabalho Pets</title>
+    {% endif %}
+</head>
+<body>
+    {% if messages %}
+        {% for message in messages %}
+            <div>{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <p>Olá {{ user.first_name }} {{ user.last_name }}!</p>
+    <a href="{% url 'logout' %}">Logout</a><br>
+    <a href="{% url 'adoption-page' %}">Adoption Page</a><br>
+    <a href="{% url 'hospedagens' %}">Hospedagens</a><br>
+    <a href="{% url 'estabelecimentos' %}">Banho e Tosa</a>
+    {% block content %}{% endblock %}
+</body>
+</html>

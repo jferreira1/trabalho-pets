@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Hospedagens Page</h1>
+    {% for hosp in hosps %}
+        <h1>Nome: {{ hosp.nome }}</h1>
+        <p>Tipo: {{ hosp.tipo }}</p>
+        <p>Valor da diária: {{ hosp.valor_diaria }}</p>
+        <a href="{% url 'hospedagem-page' hosp_id=hosp.id %}">Reservar</a>
+    {% endfor %}
+{% endblock content %}

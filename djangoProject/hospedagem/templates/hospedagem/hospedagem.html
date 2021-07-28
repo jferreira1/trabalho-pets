@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Nome: {{ hosp.nome }}</h1>
+    <p>Tipo: {{ hosp.tipo }}</p>
+    <p>Valor da diária: R$ {{ hosp.valor_diaria }}</p>
+    <br>
+    <form action="{% url 'hospedagem-page' hosp_id=hosp.id %}" method="POST">
+        {% csrf_token %}
+        {{ hosp_form.as_p }}
+        <button>Reservar!</button>
+    </form>
+{% endblock content %}

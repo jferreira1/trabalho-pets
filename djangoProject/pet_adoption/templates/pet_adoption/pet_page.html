@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Nome: {{ pet.nome }}</h1>
+    <p>Espécie: {{ pet.especie }}</p>
+    <p>Idade: {{ pet.idade }}</p>
+    <br>
+    <form action="{% url 'pet-page' pet_id=pet.id %}" method="POST">
+        {% csrf_token %}
+        {{ adoption_form.as_p }}
+        <button>Adotar!</button>
+    </form>
+{% endblock content %}
